@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sistema de bicicletas compartidas</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            background-color: #0c5ec9;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header button {
+            position: absolute;
+            top: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            color: white;
+            font-weight: bold;
+            background-color: #4caf50;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .header button:hover {
+            background-color: #45a049;
+        }
+
+        .btn-left {
+            left: 20px;
+        }
+
+        .btn-right {
+            right: 20px;
+        }
+
+        .subheader {
+            background-color: #1da2d8;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 18px;
+        }
+
+        .main {
+            background: url('https://blogdesarrolladores.lahaus.com/hubfs/Fotos_La_haus__19___1_.jpg') no-repeat center center/cover;
+            height: calc(100vh - 136px); /* ajustar al alto restante */
+            position: relative;
+        }
+
+        .center-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -60%);
+            text-align: center;
+        }
+
+        .center-content button {
+            background-color: #008CBA;
+            border: none;
+            color: white;
+            padding: 14px 30px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .map-box {
+            margin-top: 20px;
+            width: 350px;
+            height: 200px;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+            position: relative;
+        }
+
+        .chat-icon {
+            position: absolute;
+            bottom: -15px;
+            right: -15px;
+            background-color: #4caf50;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .chat-icon::before {
+            content: "💬";
+            font-size: 20px;
+        }
+        .header a {
+            position: absolute;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            color: white;
+            font-weight: bold;
+            background-color: #4caf50;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .header a:hover {
+            background-color: #45a049;
+        }
+
+        .btn-left {
+            left: 20px;
+            top: 20px;
+        }
+
+        .btn-right {
+            right: 20px;
+            top: 20px;
+        }
+
+        .btn-left.btn-margin {
+            left: 200px;
+            top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="header">
+    <a href="inscribete.html" class="btn-left">¡Inscríbete aquí!</a>
+    <a href="quienessomos.html" class="btn-left btn-margin">¿Quiénes somos?</a>git remote add origin https://github.com/SamuelMeneses/FrontBiciClose.git
+    <h1>BiciClose</h1>
+    <a href="login.html" class="btn-right">¡Inicia sesión!</a>
+</div>
+
+<div class="subheader">
+    Respondemos a la disponibilidad constante de bicicletas en Medellín
+</div>
+
+<div class="main">
+    <div class="center-content">
+        <button>Consultar disponibilidad</button>
+        <div class="map-box">
+            <div class="chat-icon"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

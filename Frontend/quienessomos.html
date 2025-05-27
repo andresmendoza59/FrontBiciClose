@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>¿Quiénes somos?</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom right, #0c5ec9, #1da2d8);
+            color: white;
+            animation: fadeIn 1s ease-in-out;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            padding: 20px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            font-size: 32px;
+            animation: slideDown 0.8s ease forwards;
+        }
+
+        .content {
+            padding: 30px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeUp 1.2s ease forwards;
+        }
+
+        .faq {
+            margin-top: 30px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .faq h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #fffffe;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-item h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: #d0ecff;
+        }
+
+        .faq-item p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #e8f6ff;
+        }
+
+        .back-button {
+            margin: 40px auto 20px;
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #4caf50;
+            border: none;
+            border-radius: 30px;
+            color: white;
+            font-size: 16px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            animation: fadeIn 2s ease forwards;
+        }
+
+        .back-button:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            margin-top: auto;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 24px;
+            }
+            .faq h2 {
+                font-size: 20px;
+            }
+            .faq-item h3 {
+                font-size: 16px;
+            }
+            .faq-item p {
+                font-size: 14px;
+            }
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            position: relative;
+            overflow-x: hidden;
+            background-color: #f9f9f9;
+        }
+
+        @keyframes flotar {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>¿Quiénes somos?</h1>
+</header>
+
+<div class="content">
+    <div class="faq">
+        <h2>Preguntas frecuentes</h2>
+
+        <div class="faq-item">
+            <h3>¿Quiénes somos?</h3>
+            <p>Somos Biciclose, una iniciativa que busca mejorar la movilidad sostenible en Medellín. Nuestra solución integra tecnología, mapas interactivos y estaciones inteligentes para facilitar el uso de la bicicleta como medio de transporte público.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>¿Qué es este proyecto?</h3>
+            <p>Es un proyecto pensado para ampliar el acceso al transporte en bicicleta en Medellín, conectando mejor a la ciudad, integrando servicios existentes y adaptándose a diferentes horarios y necesidades.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>¿Cómo funciona?</h3>
+            <p>Puedes ver en tiempo real las estaciones disponibles, su ubicación y el número de bicicletas o espacios libres. El sistema te ayuda a planear tu ruta y moverte de forma ágil y sostenible por la ciudad.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>¿Horarios?</h3>
+            <p>El servicio está disponible las 24 horas del día, los 7 días de la semana.</p>
+        </div>
+
+    </div>
+</div>
+
+<a href="index.html" class="back-button">← Regresar</a>
+
+<footer>
+    &copy; 2025 BiciClose - Medellín
+</footer>
+
+</body>
+</html>
