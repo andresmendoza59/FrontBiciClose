@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Panel de Administración - Bicicletas</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f8ff;
+            animation: fadeInBody 1s ease-out;
+        }
+
+        @keyframes fadeInBody {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .header {
+            background-color: #0c5ec9;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            animation: slideDown 1s ease-out;
+        }
+
+        .subheader {
+            background-color: #1da2d8;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 18px;
+            animation: slideUp 1.2s ease-out;
+        }
+
+        .container {
+            padding: 30px;
+            animation: fadeSlideIn 1.5s ease-out;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+            color: #0c5ec9;
+            animation: fadeSlideIn 1.5s ease-out;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 40px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            animation: zoomIn 0.8s ease-out;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            transition: background-color 0.3s ease;
+        }
+
+        th {
+            background-color: #0c5ec9;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #e0f0ff;
+            transform: scale(1.01);
+            transition: all 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            0% { transform: translateY(-30px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            0% { transform: translateY(30px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fadeSlideIn {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes zoomIn {
+            0% { transform: scale(0.95); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Panel de Administración</h1>
+</div>
+<div class="subheader">
+    Bicicletas disponibles por estación
+</div>
+<div class="container">
+
+    <h2>Estación: Estadio</h2>
+    <table>
+        <tr><th>ID Bicicleta</th><th>Último Mantenimiento</th><th>Estado</th></tr>
+        <tr><td>EST-101</td><td>2024-07-20</td><td>Disponible</td></tr>
+        <tr><td>EST-102</td><td>2024-06-15</td><td>En uso</td></tr>
+        <tr><td>EST-103</td><td>2024-08-01</td><td>Disponible</td></tr>
+        <tr><td>EST-104</td><td>2024-07-10</td><td>En uso</td></tr>
+    </table>
+
+    <h2>Estación: San Antonio</h2>
+    <table>
+        <tr><th>ID Bicicleta</th><th>Último Mantenimiento</th><th>Estado</th></tr>
+        <tr><td>SA-201</td><td>2024-06-30</td><td>Disponible</td></tr>
+        <tr><td>SA-202</td><td>2024-07-25</td><td>En uso</td></tr>
+        <tr><td>SA-203</td><td>2024-07-01</td><td>Disponible</td></tr>
+        <tr><td>SA-204</td><td>2024-08-15</td><td>Disponible</td></tr>
+    </table>
+
+    <h2>Estación: Belén</h2>
+    <table>
+        <tr><th>ID Bicicleta</th><th>Último Mantenimiento</th><th>Estado</th></tr>
+        <tr><td>BE-301</td><td>2024-06-20</td><td>En uso</td></tr>
+        <tr><td>BE-302</td><td>2024-07-18</td><td>Disponible</td></tr>
+        <tr><td>BE-303</td><td>2024-07-22</td><td>Disponible</td></tr>
+    </table>
+
+    <h2>Estación: Envigado</h2>
+    <table>
+        <tr><th>ID Bicicleta</th><th>Último Mantenimiento</th><th>Estado</th></tr>
+        <tr><td>ENV-401</td><td>2024-07-30</td><td>Disponible</td></tr>
+        <tr><td>ENV-402</td><td>2024-08-02</td><td>En uso</td></tr>
+        <tr><td>ENV-403</td><td>2024-07-05</td><td>Disponible</td></tr>
+    </table>
+</div>
+
+</body>
+</html>
