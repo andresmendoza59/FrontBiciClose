@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BiciClose - ¿Quiénes somos?</title>
+    <style>
+        :root {
+            --primary-blue: #0c5ec9; /* Darker blue from the login page header */
+            --light-blue: #1da2d8;   /* Lighter blue from the login page subheader */
+            --green-button: #4caf50; /* Green from the "Inscríbete aquí!" button */
+            --green-button-hover: #45a049; /* Slightly darker green for hover */
+            --white: #ffffff;
+            --text-color: #333333;
+            --box-shadow: rgba(0, 0, 0, 0.2);
+            --light-gray: #f0f0f0; /* For alternating FAQ items */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--light-blue) 0%, var(--primary-blue) 100%);
+            color: var(--text-color);
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            position: relative;
+        }
+
+        /* Background animated elements */
+        .background-circles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .background-circles li {
+            position: absolute;
+            display: block;
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            animation: animate 25s linear infinite;
+            bottom: -150px;
+        }
+
+        .background-circles li:nth-child(1) { left: 25%; width: 80px; height: 80px; animation-delay: 0s; }
+        .background-circles li:nth-child(2) { left: 10%; width: 20px; height: 20px; animation-delay: 2s; animation-duration: 12s; }
+        .background-circles li:nth-child(3) { left: 70%; width: 20px; height: 20px; animation-delay: 4s; }
+        .background-circles li:nth-child(4) { left: 40%; width: 60px; height: 60px; animation-delay: 0s; animation-duration: 18s; }
+        .background-circles li:nth-child(5) { left: 65%; width: 20px; height: 20px; animation-delay: 0s; }
+        .background-circles li:nth-child(6) { left: 75%; width: 110px; height: 110px; animation-delay: 3s; }
+        .background-circles li:nth-child(7) { left: 35%; width: 150px; height: 150px; animation-delay: 7s; }
+        .background-circles li:nth-child(8) { left: 50%; width: 25px; height: 25px; animation-delay: 15s; animation-duration: 45s; }
+        .background-circles li:nth-child(9) { left: 20%; width: 15px; height: 15px; animation-delay: 2s; animation-duration: 35s; }
+        .background-circles li:nth-child(10) { left: 85%; width: 150px; height: 150px; animation-delay: 0s; animation-duration: 11s; }
+
+        @keyframes animate {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; border-radius: 0; }
+            100% { transform: translateY(-1000px) rotate(720deg); opacity: 0; border-radius: 50%; }
+        }
+
+        header {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            width: 100%;
+            text-align: center;
+            padding: 30px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+            animation: slideInFromTop 1s ease-out forwards;
+            position: relative; /* Ensure header is above circles */
+            z-index: 2; /* Higher than login-container, but below fixed back-button */
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .content {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 30px var(--box-shadow);
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: center;
+            animation: fadeInScale 1s ease-out forwards;
+            position: relative;
+            z-index: 1;
+        }
+
+        .faq h2 {
+            color: var(--primary-blue);
+            margin-bottom: 30px;
+            font-size: 2.2em;
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--light-blue);
+            padding-bottom: 10px;
+            display: inline-block; /* To make border-bottom only as wide as text */
+        }
+
+        .faq-item {
+            background-color: var(--light-gray); /* Subtle background for items */
+            border-radius: 8px;
+            margin-bottom: 15px;
+            padding: 20px;
+            text-align: left;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+
+        .faq-item:nth-child(odd) {
+            background-color: var(--white); /* Alternate background */
+        }
+
+        .faq-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .faq-item h3 {
+            color: var(--green-button);
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+            cursor: pointer; /* Indicate it's clickable, even if not functional yet */
+        }
+
+        .faq-item p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--green-button);
+            border: none;
+            border-radius: 30px;
+            color: var(--white);
+            font-size: 16px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin: 25px auto 40px; /* Adjust margin for overall page flow */
+            animation: fadeIn 1.5s ease forwards 0.5s;
+            opacity: 0;
+            z-index: 10; /* Ensure button is always visible */
+        }
+
+        .back-button:hover {
+            background-color: var(--green-button-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            width: 100%;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: auto; /* Pushes footer to the bottom */
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
+            font-size: 0.9em;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Animations */
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInFromTop {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <ul class="background-circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+    </ul>
+
+    <header>
+        <h1>¿Quiénes somos?</h1>
+    </header>
+
+    <div class="content">
+        <div class="faq">
+            <h2>Preguntas frecuentes</h2>
+
+            <div class="faq-item">
+                <h3>¿Quiénes somos?</h3>
+                <p>Somos Biciclose, una iniciativa que busca mejorar la movilidad sostenible en Medellín. Nuestra solución integra tecnología, mapas interactivos y estaciones inteligentes para facilitar el uso de la bicicleta como medio de transporte público.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>¿Qué es este proyecto?</h3>
+                <p>Es un proyecto pensado para ampliar el acceso al transporte en bicicleta en Medellín, conectando mejor a la ciudad, integrando servicios existentes y adaptándose a diferentes horarios y necesidades.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>¿Cómo funciona?</h3>
+                <p>Puedes ver en tiempo real las estaciones disponibles, su ubicación y el número de bicicletas o espacios libres. El sistema te ayuda a planear tu ruta y moverte de forma ágil y sostenible por la ciudad.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>¿Horarios?</h3>
+                <p>El servicio está disponible las 24 horas del día, los 7 días de la semana.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <a href="index.html" class="back-button">← Regresar</a>
+
+    <footer>
+        &copy; 2025 BiciClose - Medellín
+    </footer>
+
+</body>
+</html>
