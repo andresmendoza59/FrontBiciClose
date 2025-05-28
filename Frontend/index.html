@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sistema de bicicletas compartidas</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    
     <style>
         * {
             box-sizing: border-box;
@@ -83,8 +85,8 @@
 
         .map-box {
             margin-top: 20px;
-            width: 350px;
-            height: 200px;
+            width: 700px;
+            height: 400px; /* IMPORTANT: Map container needs explicit height */
             background-color: white;
             border-radius: 20px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.4);
@@ -145,7 +147,7 @@
 <body>
 <div class="header">
     <a href="inscribete.html" class="btn-left">¡Inscríbete aquí!</a>
-    <a href="quienessomos.html" class="btn-left btn-margin">¿Quiénes somos?</a>git remote add origin https://github.com/SamuelMeneses/FrontBiciClose.git
+    <a href="quienessomos.html" class="btn-left btn-margin">¿Quiénes somos?</a>
     <h1>BiciClose</h1>
     <a href="login.html" class="btn-right">¡Inicia sesión!</a>
 </div>
@@ -155,12 +157,63 @@
 </div>
 
 <div class="main">
-    <div class="center-content">
-        <button>Consultar disponibilidad</button>
-        <div class="map-box">
+    <div class="center-content"> <br><br><br><br><br><br>
+        <button id="consultar-disponibilidad">Consultar disponibilidad</button>
+        <div class="map-box" id="map-container">
             <div class="chat-icon"></div>
         </div>
     </div>
 </div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+<script>
+        delete L.Icon.Default.prototype._getIconUrl;
+
+        L.Icon.Default.mergeOptions({
+            iconRetinaUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png',
+            iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
+            shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
+        });
+
+        const STATIONS_API_URL = "http://localhost:8000/stations/get-stations-json";
+
+        async function loadMap() {
+            const mapContainer = document.getElementById('map-container');
+
+            // If the map has already been initialized on this container, remove it first
+            if (mapContainer && mapContainer._leaflet_id) {
+                mapContainer._leaflet_id = null; // Reset Leaflet's internal ID
+            }
+
+            // Initialize the map using the ID of the correct div
+            const map = L.map('map-container').setView([6.230833, -75.590553], 13); // Centered on Medellin
+
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            try {
+                const response = await fetch(STATIONS_API_URL);
+                if (!response.ok) {
+                    console.error(`HTTP error! status: ${response.status}`);
+                }
+                const stations = await response.json(); // Get the JSON data
+
+                // Add markers for each station
+                stations.forEach(station => {
+                    L.marker([station.latitude, station.longitude])
+                        .addTo(map)
+                        .bindPopup(`${station.name}<br>
+                                    ${station.address}<br>
+                                    Capacidad: ${station.capacity}`);
+                });
+            } catch (error) {
+                console.error("Error loading stations data:", error);
+                mapContainer.innerHTML = 'Error al cargar las estaciones.';
+            }
+        }
+        window.onload = loadMap;
+    </script>
 </body>
 </html>
